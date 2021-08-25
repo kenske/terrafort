@@ -4,9 +4,25 @@ from terrafort.resources.aws_db_instance import AwsDbInstance
 from terrafort.resources.aws_iam_instance_profile import AwsIamInstanceProfile
 from terrafort.resources.aws_instance import AwsInstance
 from terrafort.resources.aws_security_group import AwsSecurityGroup
+from terrafort.resources.aws_route53_zone import AwsRoute53Zone
 
 
 class Aws:
+
+    @staticmethod
+    @click.command('aws_route53_zone')
+    @click.argument('zone_id')
+    @click.pass_obj
+    def aws_route53_zone(ctx, zone_id):
+        """
+        Create aws_zone_id and all the attached records
+        :param zone_id:
+        :return:
+        """
+
+        zone = AwsRoute53Zone(zone_id)
+        print(zone.render(ctx['commands']))
+
 
     @staticmethod
     @click.command('aws_security_group')

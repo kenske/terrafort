@@ -1,7 +1,5 @@
 # Terrafort
 
-[![CircleCI](https://circleci.com/gh/silvercar/terrafort/tree/master.svg?style=svg)](https://circleci.com/gh/silvercar/terrafort/tree/master)
-
 Terraform + Import = Terrafort!
 
 Terrafort creates terraform templates for existing resources. Unlike other tools like [terraforming](http://terraforming.dtan4.net/),
@@ -47,7 +45,8 @@ This is a list of the resources that are currently supported:
 - aws_iam_instance_profile
 - aws_instance
 - aws_db_instance
-- aws_security_group
+- aws_security_group (and associated rules)
+- aws_route53_zone (and associated records)
 
 ## Development
 
