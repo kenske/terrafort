@@ -1,0 +1,1 @@
+terraform import aws_route_53_zone.{{ resource.Name | trim(".") | replace(".", "_") | replace("-", "_") | lower }} {{ resource.Id | replace("/hostedzone/","") }}
