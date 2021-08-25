@@ -1,2 +1,2 @@
-terraform import aws_route53_record.{{ resource.Name | trim(".") | replace(".", "_") | replace("-", "_") | lower }}_{{ resource.Type }} {{ resource.ZoneId }}_{{ resource.Name | trim(".") }}_{{ resource.Type }}
+terraform import aws_route53_record.{{ resource.Name | trim(".") | replace(".", "_") | lower }} {{ resource.ZoneId }}_{{ resource.Name | trim(".") }}_{{ resource.Type }}
 

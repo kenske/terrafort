@@ -37,10 +37,6 @@ class AwsRoute53Zone:
 
         output = renderer.render(zone, zone_template)
 
-        # print(json.dumps(zone_response, indent=2))
-        # exit(0)
-
-
         renderer.reset_count()  # Need this to add a numeric suffix to each rule name
         for record in records_response['ResourceRecordSets']:
             if record["Type"] in ["NS", "SOA"]:

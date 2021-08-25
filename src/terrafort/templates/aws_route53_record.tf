@@ -1,5 +1,5 @@
 
-resource "aws_route53_record" "{{ resource.Name | trim(".") | replace(".", "_") | replace("-", "_") | lower }}_{{ resource.Type }}" {
+resource "aws_route53_record" "{{ resource.Name | trim(".") | replace(".", "_") | lower }}" {
       zone_id = aws_route53_zone.{{ resource.ZoneName | trim(".") | replace(".", "_") }}.id
       name = "{{ resource.Name }}"
       type = "{{ resource.Type }}"
@@ -17,7 +17,7 @@ resource "aws_route53_record" "{{ resource.Name | trim(".") | replace(".", "_") 
       alias {
       name = "{{ resource.AliasTarget.DNSName }}"
       zone_id = "{{ resource.AliasTarget.HostedZoneId }}"
-      evaluate_target_health = "{{ resource.AliasTarget.EvaluateTargetHealth }}"
+      evaluate_target_health = {{ resource.AliasTarget.EvaluateTargetHealth | lower }}
       }
       {%- endif %}
 }
