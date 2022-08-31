@@ -35,7 +35,7 @@ class AwsRoute53Zone:
             record_template = 'aws_route53_record.import.j2'
             renderer = Renderer(fmt_enabled=False)
 
-        output = renderer.render(zone, zone_template)
+        output = renderer.render(zone, "aws/%s" % zone_template)
 
         renderer.reset_count()  # Need this to add a numeric suffix to each rule name
         for record in records_response['ResourceRecordSets']:
@@ -43,6 +43,6 @@ class AwsRoute53Zone:
                 continue
             record["ZoneName"] = zone["Name"]
             record["ZoneId"] = self.zone_id
-            output += renderer.render(record, record_template)
+            output += renderer.render(record, "aws/%s" % record_template)
 
         return output

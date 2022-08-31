@@ -35,7 +35,7 @@ class AwsSecurityGroup:
 
         group = response['SecurityGroups'][0]
 
-        output = renderer.render(group, sg_template)
+        output = renderer.render(group, "aws/%s" % sg_template)
         group_id = "aws_security_group.%s.id" % group['GroupName']
 
         renderer.reset_count()  # Need this to add a numeric suffix to each rule name
@@ -44,13 +44,13 @@ class AwsSecurityGroup:
             permission['type'] = "ingress"
             permission['name'] = group['GroupName']
             permission['GroupId'] = group['GroupId']
-            output += renderer.render(permission, sg_rule_template)
+            output += renderer.render(permission, "aws/%s" % sg_rule_template)
 
         for permission in group['IpPermissionsEgress']:
             permission['id'] = group_id
             permission['type'] = "egress"
             permission['name'] = group['GroupName']
             permission['GroupId'] = group['GroupId']
-            output += renderer.render(permission, sg_rule_template)
+            output += renderer.render(permission, "aws/%s" % sg_rule_template)
 
         return output

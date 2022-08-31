@@ -1,0 +1,3 @@
+{% for variable in resource.envs %}
+terraform import 'vercel_project_environment_variable.{{ resource.project_name | lower | replace("-", "_") }}_{{ variable.target[0] }}_{{ variable.key | lower | trim(".") | replace("-", "_") }}' {{ resource.team_id}}/{{ resource.project_id}}/{{ variable.id }}
+{%- endfor %}

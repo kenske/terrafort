@@ -25,6 +25,6 @@ class AwsDbInstance:
             return None
 
         renderer = Renderer()
-        output = renderer.render(instance, 'aws_db_instance.tf')
+        output = renderer.render(instance, 'aws/aws_db_instance.tf')
 
         return output

@@ -3,6 +3,7 @@ import os
 from setuptools import setup, find_packages
 
 install_requires = [
+    'api-client',
     'boto3',
     'click',
     'jinja2'

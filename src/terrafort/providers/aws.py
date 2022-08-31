@@ -9,6 +9,9 @@ from terrafort.resources.aws_route53_zone import AwsRoute53Zone
 
 class Aws:
 
+    def __init__(self):
+        pass
+
     @staticmethod
     @click.command('aws_route53_zone')
     @click.argument('zone_id')
@@ -22,7 +25,6 @@ class Aws:
 
         zone = AwsRoute53Zone(zone_id)
         print(zone.render(ctx['commands']))
-
 
     @staticmethod
     @click.command('aws_security_group')

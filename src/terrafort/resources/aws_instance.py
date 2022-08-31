@@ -26,6 +26,6 @@ class AwsInstance:
         instance['iam_instance_profile'] = instance['IamInstanceProfile']['Arn'].rsplit('/', 1)[-1]
 
         renderer = Renderer()
-        output = renderer.render(instance, 'aws_instance.tf')
+        output = renderer.render(instance, 'aws/aws_instance.tf')
 
         return output

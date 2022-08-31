@@ -20,6 +20,6 @@ class AwsIamInstanceProfile:
         profile = response['InstanceProfile']
 
         renderer = Renderer()
-        output = renderer.render(profile, 'aws_iam_instance_profile.tf')
+        output = renderer.render(profile, 'aws/aws_iam_instance_profile.tf')
 
         return output
